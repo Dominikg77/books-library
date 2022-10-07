@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bibliothek-29329": {
+      "hosting": {
+        "bibliothek": [
+          "bibliothek-29329"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bibliothek-29329"
+  }
+}
