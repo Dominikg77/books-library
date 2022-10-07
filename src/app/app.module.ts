@@ -36,6 +36,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSelectModule } from '@angular/material/select';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 //import { HotToastModule } from '@ngneat/hot-toast';
 
@@ -49,6 +52,8 @@ import { MatSelectModule } from '@angular/material/select';
     DominikAtHomeComponent,
     SandroAtHomeComponent,
     DashboardComponent,
+    LoginComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,6 +83,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     MatSelectModule,
     AngularFireModule.initializeApp(environment.firebase),
+    HotToastModule.forRoot(),
     //HotToastModule.forRoot(),
   ],
   providers: [],

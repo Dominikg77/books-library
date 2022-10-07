@@ -1,1 +1,61 @@
-<p>info works!</p>
+<h1>Hier finden sie die idee der Bücherliste</h1>
+
+<div>
+
+    <h2>Einleitung</h2>
+
+    <p>Die Bücherliste ist eine Idee von Dominik, so dass Dominik und Sandro sich gegenseitig Bücherauslehnen können und diese nicht zweimal kaufen.</p>
+    <p>Der Vorteil dieser Liste ist, das wir immer wissen, wer diese Buch gerade hat und auch ob es schon gelesen wurde</p>
+
+</div>
+
+
+<div>
+
+    <h2>Ablauf erklärt</h2>
+
+    <ul>
+        <li>Step 1: Im Order ein Buch zur bestellung hinzufügen</li>
+        <li>Step 2: Buch wird anschliessend im Order aufgelistet sein, kann auch via Kategorie gefilert werden</li>
+        <li>Step 3: Wenn das Buch bestellt wird, auf das Feld klicken und die Bestell Daten hinzufügen</li>
+        <li>Step 4: Wenn auf den Save Button geklickt wird, wird das Buch der entsprechenden Person zugefügt, bei dem es zuerst sein wird</li>
+        <li>Step 5: Wenn das Buch ausgelehnt wird, auf die Liste Klicken und die neue Person auswählen, anschliessend wird es in ihrer Liste nun angezeigt</li>
+
+    </ul>
+
+</div>
+
+<div>
+
+    <h2>Zugang</h2>
+
+    <p>Zugang zu dieser Bücherliste hat Dominik Graf & Sandro Zichi</p>
+
+</div>
+
+<div>
+    <ng-container *ngIf="authService.currenUser$ | async as user; else loginButton">
+        <h2>Du bist eingelogt </h2>
+        <button mat-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+      {{user.displayName}}
+      <mat-icon>expand_more</mat-icon>
+    </button>
+    </ng-container>
+</div>
+
+<ng-template #loginButton>
+
+    <button mat-button routerLink="login">
+      <h2>Du musst dich Einloggen um den rest zu sehen  </h2>
+      <mat-icon>login</mat-icon>
+      Login
+    </button>
+</ng-template>
+
+
+<mat-menu #userMenu="matMenu">
+
+    <button mat-menu-item (click)="logout()">logout</button>
+
+</mat-menu>

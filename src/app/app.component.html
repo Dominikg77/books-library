@@ -31,6 +31,28 @@
 
                 <span>Bücherliste </span>
 
+
+
+                <div class="nav-login">
+
+                    <ng-container *ngIf="authService.currenUser$ | async as user; else loginButton">
+                        <button mat-button [matMenuTriggerFor]="userMenu">
+                      <mat-icon>account_circle</mat-icon>
+                       {{user.displayName}}
+                       <mat-icon>expand_more</mat-icon>
+                      </button>
+                    </ng-container>
+
+
+                    <ng-template #loginButton>
+                        <button mat-button routerLink="login">
+                        <mat-icon>login</mat-icon>
+                        Login
+                      </button>
+                    </ng-template>
+
+
+                </div>
             </mat-toolbar-row>
         </mat-toolbar>
 
@@ -41,3 +63,9 @@
     </div>
 
 </mat-drawer-container>
+
+<mat-menu #userMenu="matMenu">
+
+    <button mat-menu-item (click)="logout()">logout</button>
+
+</mat-menu>
