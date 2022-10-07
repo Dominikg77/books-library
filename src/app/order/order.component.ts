@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DialogAddNewbookComponent } from '../dialog-add-newbook/dialog-add-newbook.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Book } from 'src/models/book.class';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-order',
@@ -12,10 +13,9 @@ export class OrderComponent implements OnInit {
   book = new Book();
   allBooks = [];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private firestore: AngularFirestore) {}
 
   ngOnInit(): void {
-    /*
     this.firestore
       .collection('book')
       .valueChanges({ idField: 'BookId' })
@@ -23,7 +23,6 @@ export class OrderComponent implements OnInit {
         console.log('Test', changes);
         this.allBooks = changes;
       });
-       */
   }
 
   openDialog() {

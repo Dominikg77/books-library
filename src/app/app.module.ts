@@ -8,6 +8,7 @@ import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
 
 import { InfoComponent } from './info/info.component';
 import { DialogAddNewbookComponent } from './dialog-add-newbook/dialog-add-newbook.component';
@@ -76,6 +77,7 @@ import { MatSelectModule } from '@angular/material/select';
     ReactiveFormsModule,
     MatPaginatorModule,
     MatSelectModule,
+    AngularFireModule.initializeApp(environment.firebase),
     //HotToastModule.forRoot(),
   ],
   providers: [],

@@ -7,24 +7,24 @@
         <div>
             <mat-form-field class="mr-16" appearance="outline">
                 <mat-label>Buch Titel</mat-label>
-                <input [disabled]="loading" matInput placeholder="Buch Titel hier eingeben">
+                <input [disabled]="loading" [(ngModel)]="book.bookTitel" matInput placeholder="Buch Titel hier eingeben">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label> Autor</mat-label>
-                <input [disabled]="loading" matInput placeholder="Buch Autor hier eingeben">
+                <input [disabled]="loading" [(ngModel)]="book.autorName" matInput placeholder="Buch Autor hier eingeben">
             </mat-form-field>
         </div>
 
         <div>
             <mat-form-field class="mr-16" appearance="outline">
                 <mat-label>Anzahl Seiten</mat-label>
-                <input [disabled]="loading" matInput placeholder="Anzahl der Seiten angeben">
+                <input [disabled]="loading" [(ngModel)]="book.bookPages" matInput placeholder="Anzahl der Seiten angeben">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label> Preis</mat-label>
-                <input [disabled]="loading" matInput placeholder="Preis des Buches angeben">
+                <input type="number" [disabled]="loading" [(ngModel)]="book.amount" matInput placeholder="Preis des Buches angeben">
             </mat-form-field>
         </div>
 
@@ -32,25 +32,25 @@
 
             <mat-form-field class="mr-16" appearance="fill">
                 <mat-label>Kategorie</mat-label>
-                <mat-select>
-                    <mat-option value="one">Mindset</mat-option>
-                    <mat-option value="two">Money-Mindset</mat-option>
-                    <mat-option value="three">Blockchain</mat-option>
-                    <mat-option value="four">Verkauf</mat-option>
-                    <mat-option value="five">Business</mat-option>
+                <mat-select [(ngModel)]="book.category">
+                    <mat-option value="Mindset">Mindset</mat-option>
+                    <mat-option value="Money-Mindset">Money-Mindset</mat-option>
+                    <mat-option value="Blockchain">Blockchain</mat-option>
+                    <mat-option value="Verkauf">Verkauf</mat-option>
+                    <mat-option value="Business">Business</mat-option>
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
                 <mat-label> Link</mat-label>
-                <input [disabled]="loading" matInput placeholder="Link zum Kaufen">
+                <input [disabled]="loading" [(ngModel)]="book.link" matInput placeholder="Link zum Kaufen">
             </mat-form-field>
         </div>
 
     </div>
     <div mat-dialog-actions>
         <button [disabled]="loading " (click)="dialogRef.close() " mat-button>Cancel</button>
-        <button [disabled]="loading " mat-button (click)="saveUser() " cdkFocusInitial>Save</button>
+        <button [disabled]="loading " mat-button (click)="saveBook() " cdkFocusInitial>Save</button>
     </div>
 
 </div>
