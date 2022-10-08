@@ -9,14 +9,7 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
-
-import { InfoComponent } from './info/info.component';
-import { DialogAddNewbookComponent } from './dialog-add-newbook/dialog-add-newbook.component';
-import { OrderComponent } from './order/order.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
-import { DominikAtHomeComponent } from './dominik-at-home/dominik-at-home.component';
-import { SandroAtHomeComponent } from './sandro-at-home/sandro-at-home.component';
-
+import { HotToastModule } from '@ngneat/hot-toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -36,11 +29,17 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+
+import { InfoComponent } from './info/info.component';
+import { DialogAddNewbookComponent } from './dialog-add-newbook/dialog-add-newbook.component';
+import { OrderComponent } from './order/order.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
+import { DominikAtHomeComponent } from './dominik-at-home/dominik-at-home.component';
+import { SandroAtHomeComponent } from './sandro-at-home/sandro-at-home.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { HotToastModule } from '@ngneat/hot-toast';
-
-//import { HotToastModule } from '@ngneat/hot-toast';
 
 @NgModule({
   declarations: [
@@ -84,7 +83,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
     MatSelectModule,
     AngularFireModule.initializeApp(environment.firebase),
     HotToastModule.forRoot(),
-    //HotToastModule.forRoot(),
+    MatSortModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
