@@ -24,7 +24,7 @@ export class OrderComponent implements AfterViewInit {
   allBooks = [];
 
   displayedColumns: string[] = ['bookTitel', 'autorName', 'category', 'link'];
-  dataSource: MatTableDataSource<UserData>;
+  dataSource: MatTableDataSource<Book>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
