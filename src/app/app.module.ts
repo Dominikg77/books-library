@@ -35,11 +35,12 @@ import { MatTableModule } from '@angular/material/table';
 import { InfoComponent } from './info/info.component';
 import { DialogAddNewbookComponent } from './dialog-add-newbook/dialog-add-newbook.component';
 import { OrderComponent } from './order/order.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
+
 import { DominikAtHomeComponent } from './dominik-at-home/dominik-at-home.component';
 import { SandroAtHomeComponent } from './sandro-at-home/sandro-at-home.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { DialogOrderDetailsComponent } from './dialog-order-details/dialog-order-details.component';
 
 @NgModule({
   declarations: [
@@ -47,12 +48,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     InfoComponent,
     DialogAddNewbookComponent,
     OrderComponent,
-    OrderDetailComponent,
     DominikAtHomeComponent,
     SandroAtHomeComponent,
     DashboardComponent,
     LoginComponent,
     SignUpComponent,
+    DialogOrderDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ import {
   redirectUnauthorizedTo,
   redirectLoggedInTo,
 } from '@angular/fire/auth-guard';
+import { DialogOrderDetailsComponent } from './dialog-order-details/dialog-order-details.component';
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo(['/user']);
 
@@ -40,6 +41,7 @@ const routes: Routes = [
     component: SandroAtHomeComponent,
     ...canActivate(redirectToLogin),
   },
+  { path: 'order/:id', component: DialogOrderDetailsComponent },
 ];
 
 @NgModule({
