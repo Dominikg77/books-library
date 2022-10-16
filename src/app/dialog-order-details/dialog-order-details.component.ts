@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { BehaviorSubject, map } from 'rxjs';
 import { Book } from 'src/models/book.class';
 
 @Component({
@@ -24,8 +25,8 @@ export class DialogOrderDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((paramMap) => {
       this.bookId = paramMap.get('id');
-      this.getUser();
       console.log('id', this.bookId);
+      this.getUser();
     });
   }
 
@@ -47,10 +48,10 @@ export class DialogOrderDetailsComponent implements OnInit {
     this.loading = true;
     this.firestore
       .collection('book')
-      .add(this.book.toJSON())
-      .then((resul: any) => {
+      .doc(this.bookId)
+      .update(this.book.toJSON())
+      .then(() => {
         this.loading = false;
-        console.log(resul);
         this.dialogRef.close();
       });
   }
