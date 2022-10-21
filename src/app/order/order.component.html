@@ -7,7 +7,7 @@
             <th>Kategorie</th>
         </tr>
 
-        <tr *ngFor="let book of allBooks" (click)="openDialogOrder()">
+        <tr *ngFor="let book of allBooks ; let i = index" (click)="openDialogOrder(i)">
             <td>{{ book.bookTitel }}</td>
             <td>{{ book.autorName }}</td>
             <td>{{ book.category }}</td>

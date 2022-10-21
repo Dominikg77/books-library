@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from '@angular/fire/auth';
-import { from, switchMap } from 'rxjs';
+import { BehaviorSubject, from, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,7 @@ import { from, switchMap } from 'rxjs';
 export class AuthenticationService {
   currenUser$ = authState(this.auth);
 
+  public bookData$: BehaviorSubject<any>;
   constructor(private auth: Auth) {}
 
   login(username: string, password: string) {

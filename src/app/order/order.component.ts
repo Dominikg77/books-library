@@ -7,6 +7,7 @@ import { Book } from 'src/models/book.class';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogOrderDetailsComponent } from '../dialog-order-details/dialog-order-details.component';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-order',
@@ -20,7 +21,11 @@ export class OrderComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private firestore: AngularFirestore, public dialog: MatDialog) {}
+  constructor(
+    private firestore: AngularFirestore,
+    public dialog: MatDialog,
+    public orderServices: OrderService
+  ) {}
 
   ngAfterViewInit() {}
 
@@ -38,11 +43,17 @@ export class OrderComponent implements AfterViewInit {
     this.dialog.open(DialogAddNewbookComponent);
   }
 
-  openDialogOrder() {
-    this.dialog.open(DialogOrderDetailsComponent);
+  openDialogOrder(i) {
+    {
+      this.orderServices.bookData$.next({
+        bookTitle: this.allBooks[i]['title'],
+        bookId: this.allBooks[i]['bookID'],
+      });
+    }
   }
+}
 
-  /*
+/*
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -52,4 +63,3 @@ export class OrderComponent implements AfterViewInit {
     }
   }
   */
-}
