@@ -43,12 +43,14 @@ export class OrderComponent implements AfterViewInit {
     this.dialog.open(DialogAddNewbookComponent);
   }
 
-  openDialogOrder(i) {
+  openDialogOrder(i: number) {
     {
+      debugger;
       this.orderServices.bookData$.next({
         bookTitle: this.allBooks[i]['title'],
         bookId: this.allBooks[i]['bookID'],
       });
+      this.dialog.open(DialogOrderDetailsComponent);
     }
   }
 }

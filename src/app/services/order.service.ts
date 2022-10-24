@@ -5,5 +5,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class OrderService {
-  constructor(public bookData$: BehaviorSubject<any>) {}
+  bookData$: BehaviorSubject<any>;
+  constructor() {}
 }
